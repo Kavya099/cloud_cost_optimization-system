@@ -1,0 +1,17 @@
+{
+    "infrastructure": "AWS Cloud",
+    "requirements": [
+      {
+        "component": "Web Server",
+        "description": "Hosting a small-scale, low-traffic website"
+      },
+      {
+        "component": "Database Server",
+        "description": "Storing relational data for a web application, with moderate traffic load and data storage of around 50 GB"
+      }
+    ],
+    "additionalFeatures": {
+      "details": "Considerations for auto-scaling, load balancing, and daily backups"
+    }
+  }
+  
