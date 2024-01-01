@@ -29,8 +29,35 @@ def generate_content_with_api(prompt):
         return response.json()
     else:
         return {"error": f"Request failed with status code {response.status_code}"}
-    
-    
+
+def text_to_json(text):
+    data = {}
+    current_section = None
+
+    for line in text.split('\n'):
+        line = line.strip()
+
+        # Identify section headers and remove numbering
+        if line.endswith(":"):
+            current_section = line[:-1].lstrip("0123456789. ").strip()
+            # Initialize an empty dictionary for the section
+            data[current_section] = {}
+        elif current_section is not None:
+            # Handle list items or key-value pairs
+            if ":" in line:
+                key, value = line.split(':', 1)
+                data[current_section][key.strip()] = value.strip()
+            else:
+                # Add description items to a list
+                if line:
+                    if 'description' not in data[current_section]:
+                        data[current_section]['description'] = []
+                    data[current_section]['description'].append(line.lstrip("- ").strip())
+
+    # Remove empty sections
+    data = {k: v for k, v in data.items() if v}
+
+    return json.dumps(data, indent=4)
 
 @app.route('/upload', methods=['POST'])
 def upload_file():
@@ -46,9 +73,13 @@ def upload_file():
         prompt = create_aws_services_and_pricing_prompt(data)
         response = generate_content_with_api(prompt)
         model_response = response['candidates'][0]['content']['parts'][0]['text']
-        formatted_response = model_response.replace('*', '').strip()        
-        return formatted_response
+        formatted_response = model_response.replace('*', '').strip()
+        print(formatted_response)
+        json_output = text_to_json(formatted_response)
+
+        return json_output
 
 
 if __name__ == '__main__':
     app.run(debug=True)
+    
