@@ -5,7 +5,11 @@ import json
 app = Flask(__name__)
 
 def create_aws_services_and_pricing_prompt(data):
-    prompt = "Based on the following requirements, suggest detailed AWS infrastructure specifications, including required services and their estimated prices:\n\n"
+    with open('prompt.txt', 'r') as file:
+        file_contents = file.read()
+
+    # Use the contents of the file as the prompt
+    prompt = file_contents
     for requirement in data.get("requirements", []):
         prompt += f"- {requirement}\n"
 
