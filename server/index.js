@@ -21,7 +21,7 @@ app.use(bodyParser.json());
 
 app.use(express.json());
 
-mongoose.connect("mongodb+srv://spd85250:priya@cluster0.x7hwgog.mongodb.net/?retryWrites=true&w=majority", {
+mongoose.connect("mongodb+srv://kavya992002:kavya@cloud.c3qsiva.mongodb.net/", {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 }).then(() => {

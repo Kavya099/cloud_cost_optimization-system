@@ -1,14 +1,17 @@
+const express = require('express');
 const mongoose = require('mongoose');
 
-const healthFormDataSchema = new mongoose.Schema({
-    responses: [
-        {
-            question: String,
-            answer: mongoose.Schema.Types.Mixed,
-        }
-    ]
-});
 
+const app = express();
+app.use(express.json());
+
+const healthFormDataSchema = new mongoose.Schema({
+    responses: {
+      type: Map,
+      of: [mongoose.Schema.Types.Mixed],
+    },
+});
+    
 const healthFormDataModel = mongoose.model('healthFormData', healthFormDataSchema);
 
 const submitHealthForm = async (req, res) => {
@@ -16,24 +19,29 @@ const submitHealthForm = async (req, res) => {
         console.log('Request Body:', req.body);
         const { qn1, qn2, qn3, qn4, qn5, qn6, qn7, qn8, qn9, qn10} = req.body;
 
-        const questionsAndAnswers = [
-            {question: 'What tasks or activities do you want to accomplish using cloud services?', answer: qn1 },
-            {question: 'Are you looking to enhance the efficiency of appointment scheduling and management?', answer: qn2 },
-            {question: 'Would you like to improve patient engagement and communication?', answer: qn3},
-            {question: 'Are you interested in enhancing healthcare inventory and supply chain management?', answer: qn4 },
-            {question: 'Are you interested in improving healthcare analytics and reporting?', answer: qn5 },
-            {question: 'Would you like to implement a healthcare chatbot for patient inquiries and support?', answer: qn6 },
-            {question: 'What is the expected geographical distribution of your users?', answer: qn7 },
-            {question: 'Do you have any existing software?', answer: qn8 },
-            {question: 'Would you like to implement patient engagement portals for feedback, reviews, and interaction?', answer: qn9 },
-            {question: 'Do you need a cloud service for remote patient monitoring, early warning systems, and alerts?', answer: qn10},
-        ];
+        const convertedQn1 = Array.isArray(qn1) ? qn1.join(', ') : qn1;
+        const convertedQn7 = Array.isArray(qn7) ? qn7.join(', ') : qn7;
+    
+        const questionsAndAnswers = {
+          'What tasks or activities do you want to accomplish using cloud services?': convertedQn1,
+          'Are you looking to enhance the efficiency of appointment scheduling and management?': qn2,
+          'Would you like to improve patient engagement and communication?': qn3,
+          'Are you interested in enhancing healthcare inventory and supply chain management?': qn4,
+          'Are you interested in improving healthcare analytics and reporting?': qn5,
+          'Would you like to implement a healthcare chatbot for patient inquiries and support?': qn6,
+          'What is the expected geographical distribution of your users?': convertedQn7,
+          'Do you have any existing software?': qn8,
+          'Would you like to implement patient engagement portals for feedback, reviews, and interaction?': qn9,
+          'Do you need a cloud service for remote patient monitoring, early warning systems, and alerts?': qn10,
+        };
+        
+        console.log('Questions and Answers:', questionsAndAnswers);
 
         const healthFormData = new healthFormDataModel({
             responses: questionsAndAnswers,
         });
 
-        await healthFormData.save();
+        await healthFormData.save({wtimeout: 20000});
         res.status(201).json({success: true, message: 'Healthcare Form data saved successfully'});
     } catch (error) {
         console.error(error);
@@ -41,8 +49,10 @@ const submitHealthForm = async (req, res) => {
     }
 };
 
-module.exports = mongoose.model('htformController', healthFormDataSchema);
-module.exports = { submitHealthForm };
+module.exports = {
+    htformController: mongoose.model('htformController', healthFormDataSchema),
+    submitHealthForm,
+};
 
 
 

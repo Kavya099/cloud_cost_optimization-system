@@ -1,14 +1,17 @@
+const express = require('express');
 const mongoose = require('mongoose');
 
-const mlFormDataSchema = new mongoose.Schema({
-  responses: [
-    {
-      question: String,
-      answer: mongoose.Schema.Types.Mixed,
-    }
-  ]
-});
 
+const app = express();
+app.use(express.json());
+
+
+const mlFormDataSchema = new mongoose.Schema({
+  responses: {
+    type: Map,
+    of: [mongoose.Schema.Types.Mixed],
+  },
+});
 const MlFormDataModel = mongoose.model('mlFormData', mlFormDataSchema);
 
 const submitMlForm = async (req, res) => {
@@ -45,5 +48,7 @@ const submitMlForm = async (req, res) => {
   }
 };
 
-module.exports = mongoose.model('mlController', mlFormDataSchema);
-module.exports = { submitMlForm };
+module.exports ={
+  mlController:mongoose.model('mlController', mlFormDataSchema),
+  submitMlForm
+ };
