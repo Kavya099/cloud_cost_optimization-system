@@ -34,6 +34,7 @@ const handleSubmit = async (e) => {
 e.preventDefault();
 
 try {
+  console.log('Form Data:', mlFormData);
   const response = await fetch('http://localhost:8000/api/ml/submitMlForm', { // Update the URL
     method: 'POST',
     headers: {

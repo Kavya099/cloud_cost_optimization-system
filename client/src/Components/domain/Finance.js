@@ -33,6 +33,7 @@ const handleSubmit = async (e) => {
 e.preventDefault();
 
 try {
+  console.log('Form Data:', finFormData);
   const response = await fetch('http://localhost:8000/api/fin/submitFinForm', { // Update the URL
     method: 'POST',
     headers: {

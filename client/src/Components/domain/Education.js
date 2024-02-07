@@ -32,6 +32,7 @@ const handleSubmit = async (e) => {
 e.preventDefault();
 
 try {
+  console.log('Form Data:', eduFormData);
   const response = await fetch('http://localhost:8000/api/educ/submitEduForm', { // Update the URL
     method: 'POST',
     headers: {

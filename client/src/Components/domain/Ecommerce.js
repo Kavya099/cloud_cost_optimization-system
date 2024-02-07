@@ -35,6 +35,7 @@ const handleSubmit = async (e) => {
 e.preventDefault();
 
 try {
+  console.log('Form Data:', ecomformData);
   const response = await fetch('http://localhost:8000/api/ecom/submitEcomForm', { // Update the URL
     method: 'POST',
     headers: {

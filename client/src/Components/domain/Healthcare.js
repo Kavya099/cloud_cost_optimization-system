@@ -32,6 +32,7 @@ export default function Healthcare() {
     e.preventDefault();
 
     try {
+      console.log('Form Data:', healthFormData);
       const response = await fetch('http://localhost:8000/api/hform/submitHealthForm', {
         method: 'POST',
         headers: {
