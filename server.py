@@ -30,6 +30,8 @@ def generate_content_with_api(prompt):
     response = requests.post(f"{api_url}?key={api_key}", json=payload, headers=headers)
 
     if response.status_code == 200:
+
+        print(response.json())
         return response.json()
     else:
         return {"error": f"Request failed with status code {response.status_code}"}
@@ -80,10 +82,10 @@ def upload_file():
         formatted_response = model_response.replace('*', '').strip()
         print(formatted_response)
         json_output = text_to_json(formatted_response)
+        print("JSON Output:", json_output)
 
         return json_output
 
 
 if __name__ == '__main__':
     app.run(debug=True)
-    

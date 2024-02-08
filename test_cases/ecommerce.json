@@ -1,0 +1,109 @@
+{
+    "id": {
+       "$oid": "6597fa9cc9957efe7548e6ea"
+    },
+    "responses": [
+       {
+          "question": "What is your primary goal?",
+          "answer": ["Increase online sales and revenue"],
+          "_id": {
+             "$oid": "6597fa9cc9957efe7548e6eb"
+          }
+       },
+       {
+          "question": "What tasks or activities do you want to accomplish using cloud services?",
+          "answer": ["Hosting Website"],
+          "_id": {
+             "$oid": "6597fa9cc9957efe7548e6ec"
+          }
+       },
+       {
+          "question": "What is the expected peak sales period?",
+          "answer": "month beginning",
+          "_id": {
+             "$oid": "6597fa9cc9957efe7548e6ed"
+          }
+       },
+       {
+          "question": "Are you interested in making your website load faster and ensuring a better experience for your visitors?",
+          "answer": "yes",
+          "_id": {
+             "$oid": "6597fa9cc9957efe7548e6ee"
+          }
+       },
+       {
+          "question": "Would you like to implement an ecommerce chatbot for customer inquiries and support?",
+          "answer": "yes",
+          "_id": {
+             "$oid": "6597fa9cc9957efe7548e6ef"
+          }
+       },
+       {
+          "question": "What is the expected geographical distribution of your users?",
+          "answer": ["Local / Regional"],
+          "_id": {
+             "$oid": "6597fa9cc9957efe7548e6f0"
+          }
+       },
+       {
+          "question": "Do you require cloud-based tools for inventory demand forecasting and stock optimization?",
+          "answer": "no",
+          "_id": {
+             "$oid": "6597fa9cc9957efe7548e6f1"
+          }
+       },
+       {
+          "question": "Are you interested in customer sentiment analysis and social media monitoring?",
+          "answer": "no",
+          "_id": {
+             "$oid": "6597fa9cc9957efe7548e6f2"
+          }
+       },
+       {
+          "question": "Are you looking for a solution to manage customer reviews and feedback effectively?",
+          "answer": "yes",
+          "_id": {
+             "$oid": "6597fa9cc9957efe7548e6f3"
+          }
+       },
+       {
+          "question": "Are you looking for a system to manage returns and refunds efficiently?",
+          "answer": "no",
+          "_id": {
+             "$oid": "6597fa9cc9957efe7548e6f4"
+          }
+       },
+       {
+          "question": "How often you would like to know the updates of your usage?",
+          "answer": ["Daily", "Weekly"],
+          "_id": {
+             "$oid": "6597fa9cc9957efe7548e6f5"
+          }
+       },
+       {
+          "question": "Do you have any existing software?",
+          "answer": "no",
+          "_id": {
+             "$oid": "6597fa9cc9957efe7548e6f6"
+          }
+       },
+       {
+          "question": "Are you looking for a system to optimize pricing strategies and discounts for your products?",
+          "answer": "no",
+          "_id": {
+             "$oid": "6597fa9cc9957efe7548e6f7"
+          }
+       },
+       {
+          "question": "Would you like to enhance the customer shopping experience through mobile apps?",
+          "answer": "yes",
+          "_id": {
+             "$oid": "6597fa9cc9957efe7548e6f8"
+          }
+       }
+    ],
+    "_v": {
+       "$numberInt": "0"
+    }
+ }
+ 

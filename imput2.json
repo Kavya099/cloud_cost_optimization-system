@@ -1,0 +1,23 @@
+{
+    "startupCompany": {
+      "name": "Small Startup Company",
+      "description": "Planning to launch a new mobile application that allows consumers & service providers to interact in real-time.",
+      "currentArchitecture": "LAMP stack comprising open-source software.",
+      "growthExpectations": "Expect significant, rapid, yet un-quantified growth in the next few months.",
+      "concerns": {
+        "Scaling": "yes",
+        "DisasterRecovery": "yes",
+        "ManageUserIdentities": "yes",
+        "ServiceProvidersNotifications": "yes",
+        "RunAnalytics": "yes",
+        "DatabaseConfiguration": "yes",
+        "EffectiveLoadDistribution": "yes",
+        "SelfHealingInfrastructure": "yes",
+        "DataSecurity": "yes",
+        "EnvironmentSecurity": "yes",
+        "ArchivalStrategy": "yes",
+        "ManageReplicateEnvironments": "yes"
+      }
+    }
+  }
+  

@@ -1,0 +1,97 @@
+{
+    "_id":{
+       "$oid":"65943bcf5eb69d67d6f43e72"
+    },
+    "responses":[
+       {
+          "question":"What educational area are you interested in?",
+          "answer":[
+             "K-12 education",
+             "Higher education"
+          ],
+          "_id":{
+             "$oid":"65943bcf5eb69d67d6f43e73"
+          }
+       },
+       {
+          "question":"What tasks or activities do you want to accomplish using cloud services?",
+          "answer":[
+             "Online learning platforms",
+             "Student analytics and performance tracking"
+          ],
+          "_id":{
+             "$oid":"65943bcf5eb69d67d6f43e74"
+          }
+       },
+       {
+          "question":"Do you require a cloud solution for online testing and examination management?",
+          "answer":"yes",
+          "_id":{
+             "$oid":"65943bcf5eb69d67d6f43e75"
+          }
+       },
+       {
+          "question":"Would you like to implement a virtual library system for students to access digital resources and books?",
+          "answer":"yes",
+          "_id":{
+             "$oid":"65943bcf5eb69d67d6f43e76"
+          }
+       },
+       {
+          "question":"Do you require a cloud solution for managing educational research and data analysis projects?",
+          "answer":"yes",
+          "_id":{
+             "$oid":"65943bcf5eb69d67d6f43e77"
+          }
+       },
+       {
+          "question":"Do you require cloud-based tools for remote student counseling and support services?",
+          "answer":"yes, I need",
+          "_id":{
+             "$oid":"65943bcf5eb69d67d6f43e78"
+          }
+       },
+       {
+          "question":"Are you interested in a cloud service for interactive virtual labs and science experiments for students?",
+          "answer":"yes",
+          "_id":{
+             "$oid":"65943bcf5eb69d67d6f43e79"
+          }
+       },
+       {
+          "question":"What is the expected geographical distribution of your users?",
+          "answer":[
+             "on",
+             "on"
+          ],
+          "_id":{
+             "$oid":"65943bcf5eb69d67d6f43e7a"
+          }
+       },
+       {
+          "question":"Would you like to implement chatbot for managing queries?",
+          "answer":"yes",
+          "_id":{
+             "$oid":"65943bcf5eb69d67d6f43e7b"
+          }
+       },
+       {
+          "question":"Do you require a cloud service for secure student identity verification and authentication?",
+          "answer":"",
+          "_id":{
+             "$oid":"65943bcf5eb69d67d6f43e7c"
+          }
+       },
+       {
+          "question":"What is your expected user load?",
+          "answer":"A few hundred users (>100)",
+          "_id":{
+             "$oid":"65943bcf5eb69d67d6f43e7d"
+          }
+       }
+    ],
+    "__v":{
+       "$numberInt":"0"
+    }
+ }
+ 
