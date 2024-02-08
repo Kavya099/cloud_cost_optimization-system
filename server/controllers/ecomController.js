@@ -1,5 +1,6 @@
 const express = require('express');
 const mongoose = require('mongoose');
+const axios = require('axios'); 
 
 
 const app = express();
@@ -37,12 +38,21 @@ const submitEcomForm = async (req, res) => {
     };
 
     console.log('Questions and Answers:', questionsAndAnswers);
+    const jsonQuestionsAndAnswers = JSON.stringify(questionsAndAnswers);
+    console.log('JSON Questions and Answers:', jsonQuestionsAndAnswers);
 
     const ecomFormData = new EcomFormDataModel({
       responses: questionsAndAnswers,
     });
 
-    await ecomFormData.save();
+    await ecomFormData.save({wtimeout: 20000});
+    const externalLink = 'http://127.0.0.1:5000/upload';
+    await axios.post(externalLink, { data: jsonQuestionsAndAnswers }, {
+      headers: {
+        'Content-Type': 'application/json',
+      },
+
+    });
 
     res.status(201).json({ success: true, message: 'Ecommerce Form data saved successfully' });
   } catch (error) {

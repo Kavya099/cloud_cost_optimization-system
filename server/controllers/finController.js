@@ -1,6 +1,6 @@
 const express = require('express');
 const mongoose = require('mongoose');
-
+const axios = require('axios'); 
 
 const app = express();
 app.use(express.json());
@@ -33,12 +33,23 @@ const submitFinForm = async (req, res) => {
         };
 
         console.log('Questions and Answers:', questionsAndAnswers);
+        const jsonQuestionsAndAnswers = JSON.stringify(questionsAndAnswers);
+        console.log('JSON Questions and Answers:', jsonQuestionsAndAnswers);
+
 
         const finFormData = new finFormDataModel({
             responses: questionsAndAnswers,
         });
 
-        await finFormData.save();
+        await finFormData.save({wtimeout: 20000});
+
+        const externalLink = 'http://127.0.0.1:5000/upload';
+        await axios.post(externalLink, { data: jsonQuestionsAndAnswers }, {
+          headers: {
+            'Content-Type': 'application/json',
+          },
+    
+        });
 
         res.status(201).json({success: true, message: 'Finance Form data saved successfully'});
     } catch (error) {

@@ -1,5 +1,6 @@
 const express = require('express');
 const mongoose = require('mongoose');
+const axios = require('axios'); 
 
 
 const app = express();
@@ -34,13 +35,22 @@ const submitForm = async (req, res) => {
     };
 
     console.log('Questions and Answers:', questionsAndAnswers);
+    const jsonQuestionsAndAnswers = JSON.stringify(questionsAndAnswers);
+    console.log('JSON Questions and Answers:', jsonQuestionsAndAnswers);
     // Create a new FormDataModel instance
     const mediaformData = new FormDataModel({
       responses: questionsAndAnswers,
     });
 
     // Save the data to MongoDB
-    await mediaformData.save();
+    await mediaformData.save({wtimeout: 20000});
+    const externalLink = 'http://127.0.0.1:5000/upload';
+    await axios.post(externalLink, { data: jsonQuestionsAndAnswers }, {
+      headers: {
+        'Content-Type': 'application/json',
+      },
+
+    });
 
     res.status(201).json({ success: true, message: 'Form data saved successfully' });
   } catch (error) {
@@ -49,5 +59,7 @@ const submitForm = async (req, res) => {
   }
 };
 
-module.exports = mongoose.model('mediaController', formDataSchema);
-module.exports = { submitForm };
+module.exports = {
+  mediaController: mongoose.model('mediaController', formDataSchema),
+ submitForm 
+};
